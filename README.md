@@ -1,6 +1,17 @@
 # docker
 dockerfiles
 
+# dhadley
+
+```
+docker pull raw996/dhadley:3.3.1
+docker  run --rm -p 8787:8787 dhadley:3.3.1
+```
+
+Open your web-browser and go to http://localhost:8787
+
+Username: `rstudio` and password: `rstudio`
+
 # dpython
 
 Kaggle Python + vim-slime = REPL/RStudio knock-off for python
