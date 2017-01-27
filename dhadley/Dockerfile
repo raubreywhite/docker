@@ -33,11 +33,10 @@ RUN . /etc/environment \
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
-    shiny flexdashboard pomp
+    shiny flexdashboard pomp xgboost
 
 RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
 RUN R -e "devtools::install_github('bwlewis/doRedis')"
-RUN R -e "devtools::install_github('raubreywhite/RAWmisc') "
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
 RUN ldconfig
@@ -59,4 +58,18 @@ git clone git://github.com/jpalardy/vim-slime.git
 
 RUN apt-get install -y screen
 
+## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
+RUN R -e "devtools::install_github('rstudio/bookdown') "
 
+RUN apt-get -y install  texlive-xetex
+
+## TENSORFLOW
+
+RUN apt-get install -y python3-pip python3-dev
+RUN pip3 install --upgrade pip
+RUN pip3 install tensorflow
+
+RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);devtools::install_github('rstudio/tensorflow')"
+
+## RAWMISC
+RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
