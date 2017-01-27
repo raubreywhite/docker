@@ -46,7 +46,7 @@ RUN apt-get update \
 
 ## VIM-SLIME
 
-RUN apt-get install -y vim
+RUN apt-get install -y vim curl
 RUN mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
