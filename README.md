@@ -5,12 +5,14 @@ dockerfiles
 
 ```
 docker pull raw996/dhadley:3.3.1
-docker  run --rm -p 8787:8787 dhadley:3.3.1
+docker run --rm -p 8787:8787 raw996/dhadley:3.3.1
 ```
 
 Open your web-browser and go to http://localhost:8787
 
 Username: `rstudio` and password: `rstudio`
+
+This Docker container contains tensorflow and is accessible via rstudio (http://rstudio.github.io/tensorflow)
 
 # dpython
 
