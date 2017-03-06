@@ -33,7 +33,7 @@ RUN . /etc/environment \
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
-    shiny flexdashboard pomp xgboost
+    shiny flexdashboard pomp xgboost directlabels
 
 RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
 RUN R -e "devtools::install_github('bwlewis/doRedis')"
