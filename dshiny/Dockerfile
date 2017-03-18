@@ -11,18 +11,36 @@ RUN apt-get update && apt-get install -y -t unstable \
     libcairo2-dev/unstable \
     libxt-dev
 
+RUN apt-get -y install libxml2-dev libssl-dev
+
 # Download and install shiny server
 RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/VERSION -O "version.txt" && \
     VERSION=$(cat version.txt)  && \
     wget --no-verbose "https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubuntu-12.04/x86_64/shiny-server-$VERSION-amd64.deb" -O ss-latest.deb && \
     gdebi -n ss-latest.deb && \
     rm -f version.txt ss-latest.deb && \
-     R -e "install.packages(c('shiny', 'rmarkdown', 'ggvis', 'data.table', 'shinydashboard', 'flexdashboard', 'devtools', 'RCurl', 'readxl', 'plotly', 'DT', 'zoo', 'ggplot2'), repos='https://cran.rstudio.com/')" && \
-     cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/
+    R -e "install.packages(c('shiny', 'rmarkdown', 'ggvis', 'data.table', 'shinydashboard', 'flexdashboard', 'devtools', 'RCurl', 'readxl', 'plotly', 'DT', 'zoo', 'ggplot2'), repos='https://cran.rstudio.com/')" && \
+    cp -R /usr/local/lib/R/site-library/shiny/examples/* /srv/shiny-server/
 
-RUN R -e "install.packages(c('ineq','ggrepel','htmlTable','pander'), repos='https://cran.rstudio.com    /')"
+RUN R -e "install.packages('acepack')"
+RUN R -e "install.packages('corrr')"
+RUN R -e "install.packages('igraph')"
+RUN R -e "install.packages('vegan')"
+RUN R -e "install.packages('networkD3')"
+RUN R -e "install.packages('ggdendro')"
+RUN R -e "install.packages('ClustOfVar')"
+RUN R -e "install.packages('dendextend')"
+
+RUN R -e "devtools::install_github('cscheid/rgithub')"
+RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs') "
+RUN R -e "devtools::install_github('bwlewis/doRedis')"
+
+
+RUN R -e "install.packages(c('ineq','ggrepel','htmlTable','rredis','pander','directlabels','openxlsx'), repos='https://cran.rstudio.com/')" 
 
 RUN R -e "install.packages('shinyBS')"
+RUN R -e "install.packages('rhandsontable')"
+RUN R -e "devtools::install_github('Appsilon/shiny.router')"
 EXPOSE 3838
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh

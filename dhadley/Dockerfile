@@ -3,6 +3,18 @@ MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuette
 
 RUN apt-get update && apt-get install -y libgdal-dev libproj-dev libgsl0-dev
 
+# Install clang to use as compiler
+# clang seems to be more memory efficient with the templates than g++
+# with g++ rstan cannot compile on docker hub due to memory issues
+RUN apt-get update \ 
+	&& apt-get install -y --no-install-recommends \
+                   clang
+
+# Global site-wide config
+RUN mkdir -p $HOME/.R/ \
+    && echo "\nCXX=clang++ -ftemplate-depth-256\n" >> $HOME/.R/Makevars \
+    && echo "CC=clang\n" >> $HOME/.R/Makevars
+
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
     ggrepel lme4 arm gmailr pander httpuv
@@ -33,7 +45,11 @@ RUN . /etc/environment \
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
-    shiny flexdashboard pomp xgboost
+    shiny flexdashboard pomp xgboost directlabels
+
+RUN . /etc/environment \ 
+  && install2.r --error --repos $MRAN --deps TRUE \
+    rstan rstanarm shinystan
 
 RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
 RUN R -e "devtools::install_github('bwlewis/doRedis')"
