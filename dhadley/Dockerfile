@@ -49,7 +49,7 @@ RUN . /etc/environment \
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
-    rstan rstanarm shinystan reticulate
+    rstan rstanarm shinystan 
 
 RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
 RUN R -e "devtools::install_github('bwlewis/doRedis')"
@@ -76,6 +76,7 @@ RUN apt-get install -y screen
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
 RUN R -e "devtools::install_github('rstudio/bookdown') "
+RUN R -e "devtools::install_github('rstudio/reticulate') "
 
 RUN apt-get -y install  texlive-xetex
 
