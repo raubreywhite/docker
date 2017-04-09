@@ -13,7 +13,7 @@ RUN apt-get update \
 # Global site-wide config
 RUN mkdir -p $HOME/.R/ \
     && echo "\nCXX=clang++ -ftemplate-depth-256\n" >> $HOME/.R/Makevars \
-    && echo "CC=clang\n" >> $HOME/.R/Makevars
+    && echo "CC=clang\n" >> $HOME/.R/Makevars \
     && echo "CXXFLAGS += -Os\n" >> $HOME/.R/Makevars
 
 RUN . /etc/environment \ 
