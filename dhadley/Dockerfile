@@ -14,6 +14,7 @@ RUN apt-get update \
 RUN mkdir -p $HOME/.R/ \
     && echo "\nCXX=clang++ -ftemplate-depth-256\n" >> $HOME/.R/Makevars \
     && echo "CC=clang\n" >> $HOME/.R/Makevars
+    && echo "CXXFLAGS += -Os\n" >> $HOME/.R/Makevars
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
@@ -49,7 +50,7 @@ RUN . /etc/environment \
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
-    rstan rstanarm shinystan 
+    rstan shinystan 
 
 RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
 RUN R -e "devtools::install_github('bwlewis/doRedis')"
