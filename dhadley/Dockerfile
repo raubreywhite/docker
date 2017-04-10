@@ -92,4 +92,4 @@ RUN pip3 install tensorflow
 RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);devtools::install_github('rstudio/tensorflow')"
 
 ## RAWMISC
-RUN R -e "devtools::install_github('raubreywhite/RAWmisc') "
+RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
