@@ -79,6 +79,8 @@ RUN apt-get install -y screen
 RUN R -e "devtools::install_github('rstudio/bookdown') "
 RUN R -e "devtools::install_github('rstudio/reticulate') "
 
+RUN R -e "install.packages(c('rmarkdown'), repo = 'https://mran.microsoft.com/snapshot/2017-04-01/')"
+
 RUN apt-get -y install  texlive-xetex
 
 ## TENSORFLOW
