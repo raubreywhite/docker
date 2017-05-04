@@ -9,7 +9,10 @@ RUN apt-get update && apt-get install -y -t unstable \
     pandoc-citeproc \
     libcurl4-gnutls-dev \
     libcairo2-dev/unstable \
-    libxt-dev
+    libxt-dev \
+    libgdal-dev \
+    libproj-dev \
+    libgsl0-dev
 
 RUN apt-get -y install libxml2-dev libssl-dev
 
