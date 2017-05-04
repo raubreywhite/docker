@@ -36,11 +36,12 @@ RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs') "
 RUN R -e "devtools::install_github('bwlewis/doRedis')"
 
 
-RUN R -e "install.packages(c('ineq','ggrepel','htmlTable','rredis','pander','directlabels','openxlsx'), repos='https://cran.rstudio.com/')" 
+RUN R -e "install.packages(c('ineq','ggrepel','htmlTable','rredis','pander','directlabels','openxlsx','gmailr'), repos='https://cran.rstudio.com/')" 
 
 RUN R -e "install.packages('shinyBS')"
 RUN R -e "install.packages('rhandsontable')"
 RUN R -e "devtools::install_github('Appsilon/shiny.router')"
+RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
 EXPOSE 3838
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh
