@@ -50,7 +50,7 @@ RUN . /etc/environment \
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
-    rstan shinystan ineq
+    rstan shinystan ineq lomb
 
 RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
 RUN R -e "devtools::install_github('bwlewis/doRedis')"
