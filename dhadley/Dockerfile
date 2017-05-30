@@ -52,9 +52,6 @@ RUN . /etc/environment \
   && install2.r --error --repos $MRAN --deps TRUE \
     rstan shinystan ineq lomb
 
-RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
-RUN R -e "devtools::install_github('bwlewis/doRedis')"
-
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
 RUN ldconfig
 
@@ -76,9 +73,14 @@ git clone git://github.com/jpalardy/vim-slime.git
 RUN apt-get install -y screen
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
+RUN R -e "install.packages('rhandsontable')"
+RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
+RUN R -e "devtools::install_github('bwlewis/doRedis')"
+RUN R -e "devtools::install_github('Appsilon/shiny.router')"
+RUN R -e "devtools::install_github('ThomasSiegmund/D3TableFilter')"
+
 RUN R -e "devtools::install_github('rstudio/bookdown') "
 RUN R -e "devtools::install_github('rstudio/reticulate') "
-
 RUN R -e "install.packages(c('rmarkdown'), repo = 'https://mran.microsoft.com/snapshot/2017-04-01/')"
 
 RUN apt-get -y install  texlive-xetex
