@@ -79,8 +79,9 @@ RUN R -e "devtools::install_github('bwlewis/doRedis')"
 RUN R -e "devtools::install_github('Appsilon/shiny.router')"
 RUN R -e "devtools::install_github('ThomasSiegmund/D3TableFilter')"
 
-RUN R -e "devtools::install_github('rstudio/bookdown') "
-RUN R -e "devtools::install_github('rstudio/reticulate') "
+RUN R -e "devtools::install_github('yihui/knitr')"
+RUN R -e "devtools::install_github('rstudio/bookdown')"
+RUN R -e "devtools::install_github('rstudio/reticulate')"
 RUN R -e "install.packages(c('rmarkdown'), repo = 'https://mran.microsoft.com/snapshot/2017-04-01/')"
 
 RUN apt-get -y install  texlive-xetex
