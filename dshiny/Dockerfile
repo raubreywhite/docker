@@ -45,6 +45,7 @@ RUN R -e "install.packages('rhandsontable')"
 RUN R -e "devtools::install_github('Appsilon/shiny.router')"
 RUN R -e "devtools::install_github('ThomasSiegmund/D3TableFilter')"
 RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
+RUN R -e "install.packages('data.table', type = 'source', repos = 'http://Rdatatable.github.io/data.table')"
 EXPOSE 3838
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh
