@@ -72,7 +72,8 @@ RUN . /etc/environment \
     lomb \
     rmarkdown \
     data.table \
-    shinyBS
+    shinyBS \
+    processx
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
 RUN ldconfig
