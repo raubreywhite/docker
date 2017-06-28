@@ -30,7 +30,9 @@ RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FAL
 
 RUN apt-get install -y jags
 
-RUN R -e "source('https://bioconductor.org/biocLite.R'); biocLite('GenomicRanges')"
+RUN . /etc/environment \ 
+  && install2.r --error --repos $MRAN \
+    data.table
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
@@ -73,9 +75,10 @@ RUN . /etc/environment \
     ineq \
     lomb \
     rmarkdown \
-    data.table \
     shinyBS \
     processx
+
+
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
 RUN ldconfig
