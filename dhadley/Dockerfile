@@ -31,6 +31,10 @@ RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FAL
 RUN apt-get install -y jags
 
 RUN . /etc/environment \ 
+  && install2.r --error --repos $MRAN \
+    data.table
+
+RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
     surveillance \
     munsell \
@@ -71,9 +75,10 @@ RUN . /etc/environment \
     ineq \
     lomb \
     rmarkdown \
-    data.table \
     shinyBS \
     processx
+
+
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
 RUN ldconfig
