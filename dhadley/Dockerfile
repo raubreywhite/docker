@@ -30,6 +30,8 @@ RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FAL
 
 RUN apt-get install -y jags
 
+RUN R -e "source('https://bioconductor.org/biocLite.R'); biocLite('GenomicRanges')"
+
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
     surveillance \
