@@ -97,7 +97,7 @@ RUN apt-get install -y python3-pip python3-dev
 RUN pip3 install --upgrade pip
 RUN pip3 install tensorflow
 
-RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);devtools::install_github('rstudio/tensorflow')"
+RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);install.packages('tensorflow')"
 
 ## RAWMISC
 RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
