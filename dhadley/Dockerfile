@@ -75,9 +75,7 @@ RUN . /etc/environment \
     ineq \
     lomb \
     rmarkdown \
-    shinyBS \
-    processx
-
+    shinyBS
 
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
@@ -89,6 +87,7 @@ RUN apt-get update \
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
 RUN R -e "devtools::install_github('bwlewis/doRedis', ref='e4c1a81aa6bd0e4bfba2a7b465f08f822fd8c0d3')"
 RUN R -e "devtools::install_github('Appsilon/shiny.router',ref='7d9bc757ea31a1fe8faea6a5817c8adda97a0be0')"
+RUN R -e "devtools::install_github('r-lib/processx', ref='4bf780ff168cef0086b89251b6348722b4f9ff67')"
 
 RUN R -e "devtools::install_github('yihui/knitr')"
 RUN R -e "devtools::install_github('rstudio/bookdown')"
