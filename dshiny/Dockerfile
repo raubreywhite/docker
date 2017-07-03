@@ -28,6 +28,7 @@ RUN wget --no-verbose https://s3.amazonaws.com/rstudio-shiny-server-os-build/ubu
 RUN R -e "devtools::install_github('bwlewis/doRedis', ref='e4c1a81aa6bd0e4bfba2a7b465f08f822fd8c0d3')"
 RUN R -e "devtools::install_github('Appsilon/shiny.router',ref='7d9bc757ea31a1fe8faea6a5817c8adda97a0be0')"
 RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
+RUN R -e "devtools::install_github('raubreywhite/fhi')"
 
 EXPOSE 3838
 

@@ -75,7 +75,8 @@ RUN . /etc/environment \
     ineq \
     lomb \
     rmarkdown \
-    shinyBS
+    shinyBS \
+    rgeolocate
 
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
@@ -103,6 +104,7 @@ RUN pip3 install tensorflow
 
 RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);install.packages('tensorflow')"
 
-## RAWMISC
+## Custom libraries
 RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
 RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
+RUN R -e "devtools::install_github('raubreywhite/fhi')"
