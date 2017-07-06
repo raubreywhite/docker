@@ -1,4 +1,4 @@
-FROM rocker/verse:3.3.3
+FROM rocker/verse:3.4.0
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
 RUN apt-get update && apt-get install -y libgdal-dev libproj-dev libgsl0-dev
