@@ -76,7 +76,8 @@ RUN . /etc/environment \
     lomb \
     rmarkdown \
     shinyBS \
-    rgeolocate
+    rgeolocate \
+    glm2
 
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
@@ -110,3 +111,6 @@ RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);install.packages('tensorflow')
 RUN R -e "devtools::install_github('dashboardsfhi/dashboardgraphs')"
 RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
 RUN R -e "devtools::install_github('raubreywhite/fhi')"
+
+## preferences to stop timing out
+COPY conf/rsession.conf /etc/rstudio/rsession.conf
