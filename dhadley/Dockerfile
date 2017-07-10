@@ -113,4 +113,4 @@ RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
 RUN R -e "devtools::install_github('raubreywhite/fhi')"
 
 ## preferences to stop timing out
-COPY conf/rsession.conf /etc/rstudio/rsession.conf
+COPY rsession.conf /etc/rstudio/rsession.conf
