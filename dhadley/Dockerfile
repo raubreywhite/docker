@@ -77,7 +77,8 @@ RUN . /etc/environment \
     rmarkdown \
     shinyBS \
     rgeolocate \
-    glm2
+    glm2 \
+    zip
 
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
