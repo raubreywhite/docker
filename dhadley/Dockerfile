@@ -78,7 +78,8 @@ RUN . /etc/environment \
     shinyBS \
     rgeolocate \
     glm2 \
-    zip
+    zip \
+    doSNOW
 
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
