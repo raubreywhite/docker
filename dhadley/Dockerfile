@@ -3,6 +3,7 @@ MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuette
 
 # include new repo
 RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
+RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
 
 RUN apt-get update && apt-get install -y libgdal-dev libproj-dev libgsl0-dev
 
