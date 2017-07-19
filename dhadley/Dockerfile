@@ -82,7 +82,8 @@ RUN . /etc/environment \
     rgeolocate \
     glm2 \
     zip \
-    doSNOW
+    doSNOW \
+    drat
 
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
