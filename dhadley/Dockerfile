@@ -1,6 +1,9 @@
 FROM rocker/verse:3.4.0
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
+# include new repo
+RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
+
 RUN apt-get update && apt-get install -y libgdal-dev libproj-dev libgsl0-dev
 
 # Install clang to use as compiler
@@ -79,7 +82,8 @@ RUN . /etc/environment \
     rgeolocate \
     glm2 \
     zip \
-    doSNOW
+    doSNOW \
+    drat
 
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
@@ -111,8 +115,10 @@ RUN pip3 install tensorflow
 RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);install.packages('tensorflow')"
 
 ## Custom libraries
-RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
-RUN R -e "devtools::install_github('raubreywhite/fhi')"
+RUN . /etc/environment \ 
+  && install2.r --error --deps TRUE \
+    RAWmisc \
+    fhi
 
 ## preferences to stop timing out
 COPY rsession.conf /etc/rstudio/rsession.conf
