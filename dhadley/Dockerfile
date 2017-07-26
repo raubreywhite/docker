@@ -6,6 +6,7 @@ RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\'
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
 
 RUN apt-get update && apt-get install -y libgdal-dev libproj-dev libgsl0-dev
+RUN apt-get update && apt-get install -y ncftp ftp cron sshpass
 
 # Install clang to use as compiler
 # clang seems to be more memory efficient with the templates than g++
