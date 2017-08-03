@@ -30,6 +30,8 @@ RUN R -e "devtools::install_github('Appsilon/shiny.router',ref='7d9bc757ea31a1fe
 RUN R -e "devtools::install_github('raubreywhite/RAWmisc')"
 RUN R -e "devtools::install_github('raubreywhite/fhi')"
 
+# install ssh and git
+RUN apt-get update && apt-get install -y ssh git
 
 EXPOSE 3838
 
