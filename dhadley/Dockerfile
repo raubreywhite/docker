@@ -86,7 +86,7 @@ RUN . /etc/environment \
     zip \
     doSNOW \
     drat \
-    profvis
+    profvis 
 
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
