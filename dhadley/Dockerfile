@@ -11,7 +11,8 @@ RUN apt-get update && apt-get install -y ncftp ftp cron sshpass
 # data.table doesn't like clang
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN \
-    data.table
+    data.table \
+    influenceR
 
 # Install clang to use as compiler
 # clang seems to be more memory efficient with the templates than g++
