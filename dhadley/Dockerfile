@@ -1,4 +1,4 @@
-FROM rocker/verse:3.4.0
+FROM rocker/verse:3.4.1
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
 # include new repo
@@ -87,26 +87,31 @@ RUN . /etc/environment \
     doSNOW \
     drat \
     profvis \
-    glmnet
+    glmnet \
+    glmnetUtils \
+    pscl \
+    knitr \
+    bookdown \
+    reticulate \
+    processx
 
+## DRAT PACKAGES
+RUN . /etc/environment \ 
+  && install2.r --error \
+  RAWmisc \
+  fhi \
+  momo \
+  sykdomspuls \
+  normomo \
+  reporttb \
+  msis
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
 RUN ldconfig
 
-RUN apt-get update \
-  && apt-get install -y sshpass
-
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
-RUN R -e "devtools::install_github('bwlewis/doRedis', ref='e4c1a81aa6bd0e4bfba2a7b465f08f822fd8c0d3')"
 RUN R -e "devtools::install_github('Appsilon/shiny.router',ref='7d9bc757ea31a1fe8faea6a5817c8adda97a0be0')"
-RUN R -e "devtools::install_github('r-lib/processx', ref='4bf780ff168cef0086b89251b6348722b4f9ff67')"
-RUN R -e "devtools::install_github('tidyverse/ggplot2', ref='32e699e0bb6ff2be9212e32ad1f6b126bf225f18')"
 RUN R -e "devtools::install_github('stan-dev/projpred', ref='d9a59c432899d2c3086623302188eb140bee2e21')"
-
-
-RUN R -e "devtools::install_github('yihui/knitr')"
-RUN R -e "devtools::install_github('rstudio/bookdown')"
-RUN R -e "devtools::install_github('rstudio/reticulate')"
 
 RUN apt-get -y install  texlive-xetex
 
@@ -117,12 +122,6 @@ RUN pip3 install --upgrade pip
 RUN pip3 install tensorflow
 
 RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);install.packages('tensorflow')"
-
-## Custom libraries
-RUN . /etc/environment \ 
-  && install2.r --error --deps TRUE \
-    RAWmisc \
-    fhi
 
 ## preferences to stop timing out
 COPY rsession.conf /etc/rstudio/rsession.conf
