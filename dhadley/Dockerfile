@@ -8,6 +8,11 @@ RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile
 RUN apt-get update && apt-get install -y libgdal-dev libproj-dev libgsl0-dev
 RUN apt-get update && apt-get install -y ncftp ftp cron sshpass
 
+# data.table doesn't like clang
+RUN . /etc/environment \ 
+  && install2.r --error --repos $MRAN \
+    data.table
+
 # Install clang to use as compiler
 # clang seems to be more memory efficient with the templates than g++
 # with g++ rstan cannot compile on docker hub due to memory issues
@@ -34,10 +39,6 @@ RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FAL
   INLA
 
 RUN apt-get install -y jags
-
-RUN . /etc/environment \ 
-  && install2.r --error --repos $MRAN \
-    data.table
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
