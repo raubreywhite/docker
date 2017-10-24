@@ -116,6 +116,7 @@ RUN ldconfig
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
 RUN R -e "devtools::install_github('Appsilon/shiny.router',ref='7d9bc757ea31a1fe8faea6a5817c8adda97a0be0')"
 RUN R -e "devtools::install_github('stan-dev/projpred', ref='d9a59c432899d2c3086623302188eb140bee2e21')"
+RUN R -e "devtools::install_github('r-lib/testthat')"
 
 RUN apt-get -y install  texlive-xetex
 
@@ -124,6 +125,7 @@ RUN apt-get -y install  texlive-xetex
 RUN apt-get install -y python3-pip python3-dev
 RUN pip3 install --upgrade pip
 RUN pip3 install tensorflow
+RUN pip3 install junit-xml
 
 RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);install.packages('tensorflow')"
 
