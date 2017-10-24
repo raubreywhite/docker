@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y libglu1-mesa-dev freeglut3-dev mesa-com
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN \
     data.table \
-    influenceR
+    influenceR \
+    gower
 
 # Install clang to use as compiler
 # clang seems to be more memory efficient with the templates than g++
