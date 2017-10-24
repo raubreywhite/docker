@@ -97,7 +97,8 @@ RUN . /etc/environment \
     knitr \
     bookdown \
     reticulate \
-    processx
+    processx \
+    survminer
 
 ## DRAT PACKAGES
 RUN . /etc/environment \ 
