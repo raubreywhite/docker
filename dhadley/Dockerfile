@@ -6,7 +6,7 @@ RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\'
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
 
 RUN apt-get update
-RUN apt-get install -y software-properties-common python-software-properties
+RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:opencpu/opencpu-2.0
 RUN apt-get update && apt-get install -y opencpu
 
