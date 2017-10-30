@@ -5,6 +5,9 @@ MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuette
 RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
 
+RUN add-apt-repository ppa:opencpu/opencpu-2.0
+RUN apt-get update && apt-get install -y opencpu
+
 RUN apt-get update && apt-get install -y libgdal-dev libproj-dev libgsl0-dev
 RUN apt-get update && apt-get install -y ncftp ftp cron sshpass
 RUN apt-get update && apt-get install -y libglu1-mesa-dev freeglut3-dev mesa-common-dev
