@@ -1,39 +1,6 @@
 FROM rocker/verse:3.4.1
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
-########################
-######## OPENCPU INSTALL
-
-ENV BRANCH 2.0.6
-
-# Install.
-RUN \
-  apt-get update && \
-  apt-get -y dist-upgrade && \
-  apt-get install -y wget make devscripts apache2-dev apache2 libapreq2-dev r-base r-base-dev libapparmor-dev libcurl4-openssl-dev libprotobuf-dev protobuf-compiler xvfb xauth xfonts-base curl libssl-dev libxml2-dev libicu-dev pkg-config libssh2-1-dev locales apt-utils && \
-  useradd -ms /bin/bash builder
-
-# Note: this is different from Ubuntu (c.f. 'language-pack-en-base')
-RUN localedef -i en_US -f UTF-8 en_US.UTF-8
-
-USER builder
-
-RUN \
-  cd ~ && \
-  wget https://github.com/opencpu/opencpu-server/archive/v${BRANCH}.tar.gz && \
-  tar xzf v${BRANCH}.tar.gz && \
-  cd opencpu-server-${BRANCH} && \
-  dpkg-buildpackage -us -uc
-
-RUN \
-  apt-get install -y libapache2-mod-r-base && \
-  dpkg -i /home/builder/opencpu-lib_*.deb && \
-  dpkg -i /home/builder/opencpu-server_*.deb
-# RUN apt-get update && apt-get install -y ppa:opencpu/jq libjq-dev
-
-########################
-## NORMAL INSTALLATION
-
 # include new repo
 RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
@@ -131,8 +98,7 @@ RUN . /etc/environment \
     bookdown \
     reticulate \
     processx \
-    survminer \
-    geojsonio
+    survminer
 
 ## DRAT PACKAGES
 RUN . /etc/environment \ 
