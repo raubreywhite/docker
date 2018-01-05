@@ -1,6 +1,11 @@
 FROM rocker/verse:3.4.2
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
+# install dropbox
+RUN cd /home/rstudio & wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xz 
+RUN wget -O - "https://www.dropbox.com/download?dl=packages/dropbox.py" > /home/rstudio/dropbox.py
+RUN chmod 777 /home/rstudio/dropbox.py
+
 # include new repo
 RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
