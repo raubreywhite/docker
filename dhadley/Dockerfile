@@ -1,11 +1,6 @@
 FROM rocker/verse:3.4.2
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
-# install dropbox
-RUN cd /home/rstudio & wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xz 
-RUN wget -O - "https://www.dropbox.com/download?dl=packages/dropbox.py" > /home/rstudio/dropbox.py
-RUN chmod 777 /home/rstudio/dropbox.py
-
 # include new repo
 RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
@@ -68,9 +63,6 @@ RUN . /etc/environment \
     bibtex \
     brew \
     Hmisc \
-    Gmisc \
-    Greg \
-    htmlTable \
     ggvis \
     Formula \
     roxygen2 \
@@ -124,7 +116,9 @@ RUN R -e "devtools::install_github('Appsilon/shiny.router',ref='7d9bc757ea31a1fe
 RUN R -e "devtools::install_github('stan-dev/projpred', ref='d9a59c432899d2c3086623302188eb140bee2e21')"
 RUN R -e "devtools::install_github('r-lib/testthat')"
 
-RUN apt-get -y install  texlive-xetex
+env LANG=C.UTF-8 DEBIAN_FRONTEND=noninteractive
+#RUN apt-get update && apt-get install -y \
+#        texlive-xetex
 
 ## TENSORFLOW
 
@@ -134,6 +128,15 @@ RUN pip3 install tensorflow
 RUN pip3 install junit-xml
 
 RUN R -e "Sys.setenv(TENSORFLOW_PYTHON_VERSION=3);install.packages('tensorflow')"
+
+# rclone
+RUN apt-get update && apt-get install -y \
+        curl man-db
+RUN curl https://rclone.org/install.sh | sudo bash
+
+RUN mkdir /analyses
+RUN mkdir /dropbox
+RUN chmod 777 /analyses /dropbox
 
 ## preferences to stop timing out
 COPY rsession.conf /etc/rstudio/rsession.conf
