@@ -106,7 +106,8 @@ RUN . /etc/environment \
   sykdomspuls \
   normomo \
   reporttb \
-  msis
+  sykdomspulslog \
+  sykdomspulspdf
 
 RUN echo "/usr/local/lib/R/lib" > /etc/ld.so.conf.d/libR.conf
 RUN ldconfig
