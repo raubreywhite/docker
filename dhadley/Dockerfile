@@ -1,4 +1,4 @@
-FROM rocker/verse:3.4.2
+FROM rocker/verse:3.4.3
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
 # include new repo
