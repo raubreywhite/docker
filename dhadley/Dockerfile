@@ -145,5 +145,5 @@ RUN mkdir /analyses
 RUN mkdir /dropbox
 RUN chmod 777 /analyses /dropbox
 
-## preferences to stop timing out
+# preferences to stop timing out
 COPY rsession.conf /etc/rstudio/rsession.conf
