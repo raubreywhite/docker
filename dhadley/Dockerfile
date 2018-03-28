@@ -5,7 +5,7 @@ MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuette
 RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
 
-RUN apt-get update && apt-get install -y libgdal-dev libgeos-c1v5 libproj-dev libgsl0-dev
+RUN apt-get update && apt-get install -y libgdal-dev libgeos-c1v5 libproj-dev libgsl0-dev libprotobuf-dev protobuf-compiler
 RUN apt-get update && apt-get install -y ncftp ftp cron sshpass
 RUN apt-get update && apt-get install -y libglu1-mesa-dev freeglut3-dev mesa-common-dev libudunits2-dev
 
@@ -36,12 +36,7 @@ RUN . /etc/environment \
     arm \
     gmailr \
     pander \
-    httpuv \
-    units \
-    rgdal \
-    rgeos \
-    geojsonio \
-    rmapshaper
+    httpuv
 
 RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
   INLA
@@ -100,7 +95,12 @@ RUN . /etc/environment \
     bookdown \
     reticulate \
     processx \
-    survminer
+    survminer \
+    units \
+    rgdal \
+    rgeos \
+    geojsonio \
+    rmapshaper
 
 ## DRAT PACKAGES
 RUN . /etc/environment \ 
