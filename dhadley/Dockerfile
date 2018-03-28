@@ -100,7 +100,8 @@ RUN . /etc/environment \
     rgdal \
     rgeos \
     geojsonio \
-    rmapshaper
+    rmapshaper \
+    styler
 
 ## DRAT PACKAGES
 RUN . /etc/environment \ 
