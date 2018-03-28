@@ -38,6 +38,7 @@ RUN . /etc/environment \
     pander \
     httpuv \
     units \
+    geojsonio \
     rmapshaper
 
 RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
