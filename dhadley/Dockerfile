@@ -7,7 +7,7 @@ RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile
 
 RUN apt-get update && apt-get install -y libgdal-dev libproj-dev libgsl0-dev
 RUN apt-get update && apt-get install -y ncftp ftp cron sshpass
-RUN apt-get update && apt-get install -y libglu1-mesa-dev freeglut3-dev mesa-common-dev
+RUN apt-get update && apt-get install -y libglu1-mesa-dev freeglut3-dev mesa-common-dev libudunits2-dev
 
 # data.table doesn't like clang
 RUN . /etc/environment \ 
@@ -36,7 +36,9 @@ RUN . /etc/environment \
     arm \
     gmailr \
     pander \
-    httpuv
+    httpuv \
+    units \
+    rmapshaper
 
 RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
   INLA
