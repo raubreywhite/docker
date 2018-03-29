@@ -94,7 +94,10 @@ RUN . /etc/environment \
     knitr \
     bookdown \
     reticulate \
-    processx \
+    processx
+
+RUN . /etc/environment \ 
+  && install2.r --error --repos $MRAN --deps TRUE \
     survminer \
     units \
     rgdal \
