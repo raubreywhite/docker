@@ -10,6 +10,8 @@ RUN apt-get update && apt-get install -y libgdal-dev libgeos-c1v5 libproj-dev li
 RUN apt-get update && apt-get install -y ncftp ftp cron sshpass
 RUN apt-get update && apt-get install -y libglu1-mesa-dev freeglut3-dev mesa-common-dev libudunits2-dev
 
+RUN apt-get update && apt-get install -y libreoffice
+
 # data.table doesn't like clang
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN \
