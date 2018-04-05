@@ -1,4 +1,5 @@
-FROM rocker/verse:3.4.3
+ARG RVERSION=RVERSION
+FROM rocker/verse:${RVERSION}
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
 # include new repo
