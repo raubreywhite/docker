@@ -1,6 +1,8 @@
 #!/bin/bash
+export NOCACHE=--no-cache
 if [[ "$CI_PWD" == "" ]]; then
     export CI_PWD=$HOME/git/
+    export NOCACHE=" "
 fi
 
 source $CI_PWD/docker/bin/R_VERSION.sh
