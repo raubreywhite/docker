@@ -110,7 +110,8 @@ RUN . /etc/environment \
     rgeos \
     geojsonio \
     rmapshaper \
-    styler
+    styler \
+    odfWeave
 
 ## DRAT PACKAGES
 RUN . /etc/environment \ 
