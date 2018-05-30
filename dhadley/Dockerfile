@@ -131,6 +131,7 @@ RUN R -e "devtools::install_github('Appsilon/shiny.router',ref='7d9bc757ea31a1fe
 RUN R -e "devtools::install_github('stan-dev/projpred', ref='d9a59c432899d2c3086623302188eb140bee2e21')"
 RUN R -e "devtools::install_github('r-lib/testthat')"
 RUN R -e "devtools::install_github('hadley/haven', force=TRUE)"
+RUN R -e "devtools::install_github('cran/optimParallel', force=TRUE)"
 
 env LANG=C.UTF-8 DEBIAN_FRONTEND=noninteractive
 #RUN apt-get update && apt-get install -y \
