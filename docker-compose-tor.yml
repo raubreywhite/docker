@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  rstudio:
+    image: dtor:latest
+    volumes:
+      - $HOME/Documents/:/var/lib/tor/hidden-service
