@@ -123,7 +123,8 @@ RUN . /etc/environment \
   normomo \
   reporttb \
   sykdomspulslog \
-  sykdomspulspdf
+  sykdomspulspdf \
+  noispiah
 
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
