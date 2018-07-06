@@ -2,6 +2,10 @@ ARG RVERSION=RVERSION
 FROM rocker/verse:${RVERSION}
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
+# FONTS
+COPY fonts-ubuntu_0.83-4_all.deb /tmp/fonts-ubuntu_0.83-4_all.deb
+RUN dpkg -i /tmp/fonts-ubuntu_0.83-4_all.deb
+
 # include new repo
 RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
@@ -111,7 +115,8 @@ RUN . /etc/environment \
     geojsonio \
     rmapshaper \
     styler \
-    odfWeave
+    odfWeave \
+    uuid
 
 ## DRAT PACKAGES
 RUN . /etc/environment \ 
