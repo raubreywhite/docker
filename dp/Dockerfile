@@ -1,6 +1,6 @@
 #FROM nvcr.io/nvidia/tensorflow:18.04-py3
 #FROM tensorflow/tensorflow:1.10.0-rc1-py3
-FROM ${RVERSION}
+FROM ${FROM_IMAGE}
 
 LABEL maintainer="Kai Lichtenberg <kai@sentin.ai>"
 
