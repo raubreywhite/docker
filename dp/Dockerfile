@@ -168,6 +168,12 @@ RUN install2.r devtools remotes \
      source activate; \
      pip3 --no-cache-dir install keras"
 
+RUN install2.r ggplot2 \
+  dplyr \
+  data.table
+
+RUN installGithub.r raubreywhite/RAWmisc
+
 EXPOSE 8787
 
 CMD ["/init"]
