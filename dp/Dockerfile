@@ -38,10 +38,13 @@ RUN apt-get update \
     virtualenv \
   && rm -rf /var/lib/apt/lists/*
 
-#Add mirror 
-RUN echo "deb http://cran.rstudio.com/bin/linux/ubuntu xenial/" >> /etc/apt/sources.list \
-  && gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 \
-  && gpg -a --export E084DAB9 | apt-key add -
+## Configure default locale, see https://github.com/rocker-org/rocker/issues/19
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+	&& locale-gen en_US.utf8 \
+	&& /usr/sbin/update-locale LANG=en_US.UTF-8
+
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
 
 ## Now install R and littler, and create a link for littler in /usr/local/bin
 RUN apt-get update \
