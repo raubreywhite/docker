@@ -50,6 +50,10 @@ ENV LANG en_US.UTF-8
 RUN echo "deb http://http.debian.net/debian sid main" > /etc/apt/sources.list.d/debian-unstable.list \
         && echo 'APT::Default-Release "testing";' > /etc/apt/apt.conf.d/default 
 
+#Add key
+#RUN gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 \
+#  && gpg -a --export E084DAB9 | apt-key add -
+
 ## Now install R and littler, and create a link for littler in /usr/local/bin
 RUN apt-get update \
 	&& apt-get install -t unstable -y --allow-unauthenticated --no-install-recommends \
@@ -73,7 +77,7 @@ ENV PATH=/usr/lib/rstudio-server/bin:$PATH
 ## Symlink pandoc, pandoc-citeproc so they are available system-wide
 RUN apt-get update \
   && echo docker:docker | chpasswd \
-  && apt-get install -y --no-install-recommends \
+  && apt-get install -y --no-install-recommends --allow-unauthenticated \
     apt-utils \
     file \
     git \
