@@ -51,6 +51,7 @@ RUN echo "deb http://http.debian.net/debian sid main" > /etc/apt/sources.list.d/
         && echo 'APT::Default-Release "testing";' > /etc/apt/apt.conf.d/default 
 
 #Add key
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8B48AD6246925553 7638D0442B90D010 04EE7237B7D453EC
 #RUN gpg --keyserver keyserver.ubuntu.com --recv-key E084DAB9 \
 #  && gpg -a --export E084DAB9 | apt-key add -
 
