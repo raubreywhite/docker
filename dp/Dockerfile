@@ -11,7 +11,7 @@ ARG myUID="1000"
 ARG myGID="1000"
 
 #Specifiy R and Keras Version
-ENV R_BASE_VERSION=3.4.4
+ENV R_BASE_VERSION=3.5.1
 ENV KERAS_VERSION=2.1.5
 
 #Set a user 
