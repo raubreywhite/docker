@@ -52,7 +52,7 @@ RUN echo "deb http://http.debian.net/debian sid main" > /etc/apt/sources.list.d/
 
 ## Now install R and littler, and create a link for littler in /usr/local/bin
 RUN apt-get update \
-	&& apt-get install -t unstable -y --no-install-recommends \
+	&& apt-get install -t unstable -y --allow-unauthenticated --no-install-recommends \
 		littler \
                 r-cran-littler \
 		r-base=${R_BASE_VERSION}-* \
