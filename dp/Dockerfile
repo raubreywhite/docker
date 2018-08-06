@@ -14,7 +14,7 @@ RUN useradd rstudio \
     && echo "rstudio:rstudio" | chpasswd \
 	&& mkdir /home/rstudio \
 	&& chown rstudio:rstudio /home/rstudio \
-	&& addgroup rstudio staff \
+	&& addgroup rstudio staff
 
 #Install packages needed
 RUN apt-get update \ 
