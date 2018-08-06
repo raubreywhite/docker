@@ -160,6 +160,12 @@ RUN install2.r ggplot2 \
 
 RUN installGithub.r raubreywhite/RAWmisc
 
+# rclone
+RUN apt-get update && apt-get install -y \
+        curl man-db
+RUN curl https://rclone.org/install.sh | sudo bash
+
+
 EXPOSE 8787
 
 CMD ["/init"]
