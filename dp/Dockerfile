@@ -5,24 +5,6 @@ FROM ${FROM_IMAGE}
 
 LABEL maintainer="Kai Lichtenberg <kai@sentin.ai>"
 
-#Arguments
-ARG USER="docker"
-ARG myUID="1000"
-ARG myGID="1000"
-
-#Specifiy R and Keras Version
-ENV R_BASE_VERSION=3.5.1
-ENV KERAS_VERSION=2.1.5
-
-#Set a user 
-RUN groupadd --gid "${myGID}" "${USER}" \
-  && useradd \
-    --uid ${myUID} \
-    --gid ${myGID} \
-    --create-home \
-    --shell /bin/bash \
-    ${USER}
-
 #Install packages needed
 RUN apt-get update \ 
   && apt-get install -y --no-install-recommends \
