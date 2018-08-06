@@ -152,7 +152,7 @@ RUN install2.r devtools remotes \
   && virtualenv --system-site-packages /home/${USER}/.virtualenvs/r-tensorflow --python=python3.5 \
   && /bin/bash -c "cd /home/${USER}/.virtualenvs/r-tensorflow/bin/; \
      source activate; \
-     pip3 --no-cache-dir install keras PIL"
+     pip3 --no-cache-dir install keras Pillow"
 
 RUN install2.r ggplot2 \
   dplyr \
