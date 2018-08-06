@@ -5,6 +5,10 @@ FROM ${FROM_IMAGE}
 
 LABEL maintainer="Kai Lichtenberg <kai@sentin.ai>"
 
+#Specifiy R and Keras Version
+ENV R_BASE_VERSION=3.5.1
+ENV KERAS_VERSION=2.1.5
+
 #Install packages needed
 RUN apt-get update \ 
   && apt-get install -y --no-install-recommends \
