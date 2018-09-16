@@ -115,7 +115,6 @@ RUN . /etc/environment \
     geojsonio \
     rmapshaper \
     styler \
-    odfWeave \
     uuid \
     captioner
 
