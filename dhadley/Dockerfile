@@ -13,7 +13,7 @@ RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile
 RUN apt-get update && apt-get install -y libgdal-dev libgeos-c1v5 libproj-dev libgsl0-dev libprotobuf-dev protobuf-compiler
 RUN apt-get update && apt-get install -y ncftp ftp cron sshpass
 RUN apt-get update && apt-get install -y libglu1-mesa-dev freeglut3-dev mesa-common-dev libudunits2-dev
-RUN apt-get update && apt-get install -y jq-devel
+RUN apt-get update && apt-get install -y libjq-dev
 
 # libreoffice
 RUN apt-get update && apt-get install -y libreoffice
