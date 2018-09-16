@@ -48,8 +48,9 @@ RUN . /etc/environment \
     pander \
     httpuv
 
-RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
-  INLA
+#RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
+#  INLA
+RUN R -e "install.packages('INLA', repos=c(getOption('repos'), INLA='https://inla.r-inla-download.org/R/stable'), dep=FALSE)"
 
 RUN apt-get install -y jags
 
