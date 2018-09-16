@@ -116,7 +116,8 @@ RUN . /etc/environment \
     rmapshaper \
     styler \
     odfWeave \
-    uuid
+    uuid \
+    captioner
 
 ## DRAT PACKAGES
 RUN . /etc/environment \ 
