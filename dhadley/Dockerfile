@@ -48,10 +48,10 @@ RUN . /etc/environment \
     pander \
     httpuv
 
-#RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
-#  INLA
+RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
+  INLA
 
-#RUN apt-get install -y jags
+RUN apt-get install -y jags
 
 RUN . /etc/environment \ 
   && install2.r --error --repos $MRAN --deps TRUE \
