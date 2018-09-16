@@ -49,7 +49,7 @@ RUN . /etc/environment \
     httpuv
 
 #RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
-  INLA
+#  INLA
 
 #RUN apt-get install -y jags
 
