@@ -3,6 +3,9 @@ FROM rocker/verse:${RVERSION}
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
 # texlive
+RUN apt-get update && apt-get install -y \
+  xzdec
+
 #RUN apt-get update && apt-get install -y \
 #        texlive-latex-base
 
