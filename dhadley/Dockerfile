@@ -142,8 +142,8 @@ RUN R -e "devtools::install_github('hadley/haven', force=TRUE)"
 RUN R -e "devtools::install_github('cran/optimParallel', force=TRUE)"
 
 env LANG=C.UTF-8 DEBIAN_FRONTEND=noninteractive
-#RUN apt-get update && apt-get install -y \
-#        texlive-xetex
+RUN apt-get update && apt-get install -y \
+        texlive-full
 
 ## TENSORFLOW
 
