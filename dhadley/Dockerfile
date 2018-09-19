@@ -2,6 +2,11 @@ ARG RVERSION=RVERSION
 FROM rocker/verse:${RVERSION}
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
+# texlive
+RUN apt-get purge -y texlive
+RUN apt-get update && apt-get install -y \
+        texlive-full
+
 # FONTS
 COPY fonts-ubuntu_0.83-4_all.deb /tmp/fonts-ubuntu_0.83-4_all.deb
 RUN dpkg -i /tmp/fonts-ubuntu_0.83-4_all.deb
@@ -142,8 +147,6 @@ RUN R -e "devtools::install_github('hadley/haven', force=TRUE)"
 RUN R -e "devtools::install_github('cran/optimParallel', force=TRUE)"
 
 env LANG=C.UTF-8 DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y \
-        texlive-full
 
 ## TENSORFLOW
 
