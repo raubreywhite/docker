@@ -3,9 +3,8 @@ FROM rocker/verse:${RVERSION}
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
 # texlive
-RUN apt-get purge -y texlive
 RUN apt-get update && apt-get install -y \
-        texlive-full
+        texlive-latex-base
 
 # FONTS
 COPY fonts-ubuntu_0.83-4_all.deb /tmp/fonts-ubuntu_0.83-4_all.deb
