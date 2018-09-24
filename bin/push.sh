@@ -8,6 +8,6 @@ fi
 source $CI_PWD/docker/bin/R_VERSION.sh
 docker push raw996/dhadley:$RVERSION
 
-docker push raw996/dp:gpu
-docker push raw996/dp:cpu
+#docker push raw996/dp:gpu
+#docker push raw996/dp:cpu
 

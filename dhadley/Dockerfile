@@ -3,7 +3,7 @@ FROM rocker/verse:${RVERSION}
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
 # tinytex
-RUN R -e "tinytex::install_tinytex()"
+#RUN R -e "tinytex::install_tinytex()"
 RUN echo PATH=$PATH >> /etc/profile
 RUN echo export PATH >> /etc/profile
 
