@@ -1,0 +1,3 @@
+PATH=/usr/lib/rstudio-server/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/TinyTeX/bin/x86_64-linux/
+
+export PATH
