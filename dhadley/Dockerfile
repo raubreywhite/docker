@@ -2,6 +2,9 @@ ARG RVERSION=RVERSION
 FROM rocker/verse:${RVERSION}
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
+# allow 'rstudio' as password
+RUN sed -i '/exit 1/d' /etc/cont-init.d/userconf
+
 # tinytex
 #RUN R -e "tinytex::install_tinytex()"
 RUN echo PATH=$PATH >> /etc/profile
@@ -16,7 +19,7 @@ COPY fonts-ubuntu_0.83-4_all.deb /tmp/fonts-ubuntu_0.83-4_all.deb
 RUN dpkg -i /tmp/fonts-ubuntu_0.83-4_all.deb
 
 # include new repo
-RUN sed -i "s/CRAN/raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
+RUN sed -i "s/CRAN/euromomo=\'https:\\/\\/euromomonetwork.github.io\\/drat\\/\',raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
 
 RUN apt-get update && apt-get install -y libgdal-dev libgeos-c1v5 libproj-dev libgsl0-dev libprotobuf-dev protobuf-compiler
@@ -132,6 +135,7 @@ RUN . /etc/environment \
 ## DRAT PACKAGES
 RUN . /etc/environment \ 
   && install2.r --error \
+  MOMO \
   RAWmisc \
   fhi \
   momo \
