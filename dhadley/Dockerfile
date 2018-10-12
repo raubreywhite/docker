@@ -130,7 +130,8 @@ RUN . /etc/environment \
     rmapshaper \
     styler \
     uuid \
-    captioner
+    captioner \
+    pkgdown
 
 ## DRAT PACKAGES
 RUN . /etc/environment \ 
