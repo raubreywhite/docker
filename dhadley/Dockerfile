@@ -18,6 +18,9 @@ RUN echo Sys.setenv\(PATH=\"$PATH\"\) >> /usr/local/lib/R/etc/Rprofile.site
 COPY fonts-ubuntu_0.83-4_all.deb /tmp/fonts-ubuntu_0.83-4_all.deb
 RUN dpkg -i /tmp/fonts-ubuntu_0.83-4_all.deb
 
+# tinytex needed packages
+RUN tlmgr install svg koma-script trimspaces xcolor fancyhdr blindtext
+
 # include new repo
 RUN sed -i "s/CRAN/euromomo=\'https:\\/\\/euromomonetwork.github.io\\/drat\\/\',raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
