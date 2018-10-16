@@ -22,7 +22,7 @@ RUN dpkg -i /tmp/fonts-ubuntu_0.83-4_all.deb
 RUN tlmgr install svg koma-script trimspaces xcolor fancyhdr blindtext
 
 # include new repo
-RUN sed -i "s/CRAN/euromomo=\'https:\\/\\/euromomonetwork.github.io\\/drat\\/\',raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
+RUN sed -i "s/CRAN/folkehelseinstittutet=\'https:\\/\\/folkehelseinstittutet.github.io\\/drat\\/\',euromomo=\'https:\\/\\/euromomonetwork.github.io\\/drat\\/\',raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
 RUN sed -i "1s/^/dratRepo=\'\\/git\\/drat\\/\'\n/" /usr/local/lib/R/etc/Rprofile.site
 
 RUN apt-get update && apt-get install -y libgdal-dev libgeos-c1v5 libproj-dev libgsl0-dev libprotobuf-dev protobuf-compiler
@@ -62,7 +62,8 @@ RUN . /etc/environment \
     arm \
     gmailr \
     pander \
-    httpuv
+    httpuv \
+    ggpubr
 
 #RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
 #  INLA
@@ -136,16 +137,22 @@ RUN . /etc/environment \
     captioner \
     pkgdown
 
-## DRAT PACKAGES
+## DRAT PACKAGES FROM EUROMOMO
 RUN . /etc/environment \ 
   && install2.r --error \
-  MOMO \
-  RAWmisc \
+  MOMO 
+
+## DRAT PACKAGES FROM RICHARD
+RUN . /etc/environment \ 
+  && install2.r --error \
+  RAWmisc
+
+## DRAT PACKAGES FROM FHI
+RUN . /etc/environment \ 
+  && install2.r --error \
   fhi \
-  momo \
   sykdomspuls \
   normomo \
-  reporttb \
   sykdomspulslog \
   sykdomspulspdf \
   noispiah
