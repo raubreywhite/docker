@@ -145,7 +145,8 @@ RUN . /etc/environment \
 ## DRAT PACKAGES FROM RICHARD
 RUN . /etc/environment \ 
   && install2.r --error \
-  RAWmisc
+  RAWmisc \
+  org
 
 ## DRAT PACKAGES FROM FHI
 RUN . /etc/environment \ 
