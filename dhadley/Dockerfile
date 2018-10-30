@@ -19,6 +19,7 @@ COPY fonts-ubuntu_0.83-4_all.deb /tmp/fonts-ubuntu_0.83-4_all.deb
 RUN dpkg -i /tmp/fonts-ubuntu_0.83-4_all.deb
 
 # tinytex needed packages
+RUN tlmgr update --self
 RUN tlmgr install svg koma-script trimspaces xcolor fancyhdr blindtext
 
 # include new repo
