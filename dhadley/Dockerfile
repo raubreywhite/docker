@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y libgdal-dev libgeos-c1v5 libproj-dev li
 RUN apt-get update && apt-get install -y ncftp ftp cron sshpass
 RUN apt-get update && apt-get install -y libglu1-mesa-dev freeglut3-dev mesa-common-dev libudunits2-dev
 RUN apt-get update && apt-get install -y libjq-dev
+RUN apt-get update && apt-get install -y libssl-dev
 
 # libreoffice
 RUN apt-get update && apt-get install -y libreoffice
@@ -135,7 +136,8 @@ RUN . /etc/environment \
     styler \
     uuid \
     captioner \
-    pkgdown
+    pkgdown \
+    blastula
 
 ## DRAT PACKAGES FROM EUROMOMO
 RUN . /etc/environment \ 
