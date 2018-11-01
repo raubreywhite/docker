@@ -2,6 +2,9 @@ ARG RVERSION=RVERSION
 FROM rocker/verse:${RVERSION}
 MAINTAINER "Carl Boettiger and Dirk Eddelbuettel" rocker-maintainers@eddelbuettel.com
 
+# soft link to site library
+RUN ln -s /usr/local/lib/R/site-library/ /r
+
 # allow 'rstudio' as password
 RUN sed -i '/exit 1/d' /etc/cont-init.d/userconf
 
