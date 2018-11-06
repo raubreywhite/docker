@@ -23,7 +23,20 @@ RUN dpkg -i /tmp/fonts-ubuntu_0.83-4_all.deb
 
 # tinytex needed packages
 RUN tlmgr update --self
-RUN tlmgr install svg koma-script trimspaces xcolor fancyhdr blindtext
+RUN tlmgr install \
+  svg \
+  koma-script \
+  trimspaces \
+  xcolor \
+  fancyhdr \
+  blindtext \
+  background \
+  pgf \
+  everypage \
+  datetime \
+  fmtcount \
+  float
+
 
 # include new repo
 RUN sed -i "s/CRAN/folkehelseinstituttet=\'https:\\/\\/folkehelseinstituttet.github.io\\/drat\\/\',euromomo=\'https:\\/\\/euromomonetwork.github.io\\/drat\\/\',raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
