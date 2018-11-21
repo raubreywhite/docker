@@ -175,7 +175,8 @@ RUN . /etc/environment \
   normomo \
   sykdomspulslog \
   sykdomspulspdf \
-  noispiah
+  noispiah \
+  smhb
 
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
