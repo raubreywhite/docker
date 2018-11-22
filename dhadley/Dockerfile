@@ -154,7 +154,8 @@ RUN . /etc/environment \
     uuid \
     captioner \
     pkgdown \
-    blastula
+    blastula \
+    RMariaDB
 
 ## DRAT PACKAGES FROM EUROMOMO
 RUN . /etc/environment \ 
