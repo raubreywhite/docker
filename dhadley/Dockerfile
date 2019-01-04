@@ -157,7 +157,8 @@ RUN . /etc/environment \
     blastula \
     RMariaDB \
     pool \
-    memoise
+    memoise \
+    pbmcapply
 
 ## DRAT PACKAGES FROM EUROMOMO
 RUN . /etc/environment \ 
