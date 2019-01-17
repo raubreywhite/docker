@@ -159,7 +159,8 @@ RUN . /etc/environment \
     pool \
     memoise \
     pbmcapply \
-    lemon
+    lemon \
+    GPArotation
 
 ## DRAT PACKAGES FROM EUROMOMO
 RUN . /etc/environment \ 
