@@ -182,7 +182,8 @@ RUN . /etc/environment \
   sykdomspulslog \
   sykdomspulspdf \
   noispiah \
-  smhb
+  smhb \
+  commuter
 
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
