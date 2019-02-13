@@ -35,7 +35,8 @@ RUN tlmgr install \
   everypage \
   datetime \
   fmtcount \
-  float
+  float \
+  tufte-latex
 
 
 # include new repo
