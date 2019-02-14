@@ -37,7 +37,13 @@ RUN tlmgr install \
   fmtcount \
   float \
   tufte-latex \
-  hardwrap
+  hardwrap \
+  titlesec \
+  textcase \
+  setspace \
+  units \
+  ulem \
+  morefloats
 
 
 # include new repo
