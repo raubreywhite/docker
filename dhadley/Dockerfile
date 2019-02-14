@@ -36,7 +36,8 @@ RUN tlmgr install \
   datetime \
   fmtcount \
   float \
-  tufte-latex
+  tufte-latex \
+  hardwrap
 
 
 # include new repo
