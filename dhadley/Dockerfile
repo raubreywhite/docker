@@ -15,7 +15,7 @@ RUN echo export PATH >> /etc/profile
 RUN echo Sys.setenv\(PATH=\"$PATH\"\) >> /usr/local/lib/R/etc/Rprofile.site
 
 #RUN apt-get update && apt-get install -y \
-#        texlive-latex-base
+#        texlive-latex-recommended
 
 # FONTS
 COPY fonts-ubuntu_0.83-4_all.deb /tmp/fonts-ubuntu_0.83-4_all.deb
@@ -43,8 +43,8 @@ RUN tlmgr install \
   setspace \
   units \
   ulem \
-  morefloats
-
+  morefloats \
+  xifthen
 
 # include new repo
 RUN sed -i "s/CRAN/folkehelseinstituttet=\'https:\\/\\/folkehelseinstituttet.github.io\\/drat\\/\',euromomo=\'https:\\/\\/euromomonetwork.github.io\\/drat\\/\',raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site

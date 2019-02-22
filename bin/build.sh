@@ -1,7 +1,7 @@
 #!/bin/bash
 export NOCACHE=--no-cache
 if [[ "$CI_PWD" == "" ]]; then
-    export CI_PWD=$HOME/git/
+    export CI_PWD=$HOME/Documents/git/
     export NOCACHE=" "
 fi
 
