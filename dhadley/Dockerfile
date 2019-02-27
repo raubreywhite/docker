@@ -227,3 +227,13 @@ RUN chmod 777 /analyses /dropbox
 
 # preferences to stop timing out
 COPY rsession.conf /etc/rstudio/rsession.conf
+
+## ADD IN SHINY
+ENV ADD=shiny
+RUN wget --no-verbose https://raw.githubusercontent.com/rocker-org/rocker-versioned/master/rstudio/3.5.0/add_shiny.sh -O "add_shiny.sh" 
+RUN sed -i -e "1d" add_shiny.sh
+RUN sed -i '1s/^/#!\/bin\/bash /' add_shiny.sh
+RUN chmod 777 add_shiny.sh
+RUN /add_shiny.sh
+RUN rm /etc/cont-init.d/add
+COPY shiny-server.conf /etc/shiny-server/shiny-server.conf
