@@ -22,7 +22,7 @@ COPY fonts-ubuntu_0.83-4_all.deb /tmp/fonts-ubuntu_0.83-4_all.deb
 RUN dpkg -i /tmp/fonts-ubuntu_0.83-4_all.deb
 
 # tinytex needed packages
-RUN tlmgr option repository http://mirror.switch.ch/ftp/mirror/tex/systems/texlive/tlnet
+RUN tlmgr option repository ctan.uib.no 
 RUN tlmgr update --self
 RUN tlmgr install \
   svg \
