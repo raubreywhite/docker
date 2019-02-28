@@ -45,7 +45,8 @@ RUN tlmgr install \
   units \
   ulem \
   morefloats \
-  xifthen
+  xifthen \
+  ec
 
 # include new repo
 RUN sed -i "s/CRAN/folkehelseinstituttet=\'https:\\/\\/folkehelseinstituttet.github.io\\/drat\\/\',euromomo=\'https:\\/\\/euromomonetwork.github.io\\/drat\\/\',raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
