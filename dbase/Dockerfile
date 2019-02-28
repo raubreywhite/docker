@@ -21,9 +21,13 @@ RUN echo Sys.setenv\(PATH=\"$PATH\"\) >> /usr/local/lib/R/etc/Rprofile.site
 COPY fonts-ubuntu_0.83-4_all.deb /tmp/fonts-ubuntu_0.83-4_all.deb
 RUN dpkg -i /tmp/fonts-ubuntu_0.83-4_all.deb
 
+RUN apt-get update -y
+
 # tinytex needed packages
 RUN tlmgr option repository http://ctan.uib.no/systems/texlive/tlnet
 RUN tlmgr update --self
+RUN apt-get install -y xzdec
+RUN tlmgr init-usertree
 RUN tlmgr install \
   svg \
   koma-script \
@@ -47,7 +51,9 @@ RUN tlmgr install \
   morefloats \
   xifthen \
   ec \
-  multirow
+  multirow \
+  collection-latexextra \
+  palatino
 
 # include new repo
 RUN sed -i "s/CRAN/folkehelseinstituttet=\'https:\\/\\/folkehelseinstituttet.github.io\\/drat\\/\',euromomo=\'https:\\/\\/euromomonetwork.github.io\\/drat\\/\',raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
