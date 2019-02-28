@@ -46,7 +46,8 @@ RUN tlmgr install \
   ulem \
   morefloats \
   xifthen \
-  ec
+  ec \
+  multirow
 
 # include new repo
 RUN sed -i "s/CRAN/folkehelseinstituttet=\'https:\\/\\/folkehelseinstituttet.github.io\\/drat\\/\',euromomo=\'https:\\/\\/euromomonetwork.github.io\\/drat\\/\',raubreywhite=\'https:\\/\\/raubreywhite.github.io\\/drat\\/\',CRAN/" /usr/local/lib/R/etc/Rprofile.site
@@ -173,7 +174,8 @@ RUN . /etc/environment \
     pbmcapply \
     lemon \
     GPArotation \
-    xlsx
+    xlsx \
+    kableExtra
 
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
