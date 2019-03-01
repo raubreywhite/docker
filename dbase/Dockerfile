@@ -55,7 +55,9 @@ RUN tlmgr install \
   collection-latexextra \
   palatino \
   mathpazo \
-  fpl
+  fpl \
+  babel-norsk
+
 RUN texhash
 
 # include new repo
