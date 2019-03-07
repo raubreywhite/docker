@@ -186,7 +186,8 @@ RUN . /etc/environment \
     lemon \
     GPArotation \
     xlsx \
-    kableExtra
+    kableExtra \
+    cowplot
 
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
