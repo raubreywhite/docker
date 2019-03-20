@@ -14,6 +14,11 @@ RUN echo PATH=$PATH >> /etc/profile
 RUN echo export PATH >> /etc/profile
 RUN echo Sys.setenv\(PATH=\"$PATH\"\) >> /usr/local/lib/R/etc/Rprofile.site
 
+# shapefiles
+RUN mkdir /shapefiles
+COPY NOR_adm1.rds /shapefiles/NOR_adm1.rds
+RUN echo 'options(shapefiles = "/shapefiles")' >> /usr/local/lib/R/etc/Rprofile.site
+
 #RUN apt-get update && apt-get install -y \
 #        texlive-latex-recommended
 
