@@ -194,7 +194,8 @@ RUN . /etc/environment \
     xlsx \
     kableExtra \
     cowplot \
-    GADMTools
+    GADMTools \
+    mapproj
 
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
