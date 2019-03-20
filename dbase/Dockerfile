@@ -193,7 +193,8 @@ RUN . /etc/environment \
     GPArotation \
     xlsx \
     kableExtra \
-    cowplot
+    cowplot \
+    GADMTools
 
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
