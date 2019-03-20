@@ -16,6 +16,7 @@ RUN . /etc/environment \
 ## DRAT PACKAGES FROM FHI
 RUN . /etc/environment \ 
   && install2.r --error \
+  fhidata \
   fhi \
   sykdomspuls \
   normomo \
