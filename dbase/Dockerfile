@@ -71,6 +71,7 @@ RUN apt-get update && apt-get install -y libjq-dev
 RUN apt-get update && apt-get install -y libssl-dev
 RUN apt-get update && apt-get install -y libomp-dev
 RUN apt-get update && apt-get install -y tk
+RUN apt-get update && apt-get install -y cargo
 
 # libreoffice
 RUN apt-get update && apt-get install -y libreoffice
