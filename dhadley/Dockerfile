@@ -17,6 +17,7 @@ RUN . /etc/environment \
 RUN . /etc/environment \ 
   && install2.r --error \
   fhidata \
+  fhiplot \
   fhi \
   sykdomspuls \
   normomo \
