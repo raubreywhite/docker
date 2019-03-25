@@ -191,7 +191,10 @@ RUN . /etc/environment \
     kableExtra \
     cowplot \
     GADMTools \
-    mapproj
+    mapproj \
+    blogdown
+
+RUN R -e "blogdown::install_hugo()"
 
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
