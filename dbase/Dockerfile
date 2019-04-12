@@ -192,7 +192,8 @@ RUN . /etc/environment \
     cowplot \
     GADMTools \
     mapproj \
-    blogdown
+    blogdown \
+    RcppProgress
 
 RUN R -e "blogdown::install_hugo()"
 
