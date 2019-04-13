@@ -25,5 +25,5 @@ RUN . /etc/environment \
   sykdomspulspdf \
   noispiah \
   smhb \
-  commuter
+  spread
 
