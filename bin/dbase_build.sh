@@ -8,4 +8,4 @@ fi
 source $CI_PWD/docker/bin/R_VERSION.sh
 
 
-docker build --pull --no-cache --tag=raw996/dbase:$RVERSION --build-arg RVERSION=$RVERSION $CI_PWD/docker/dbase
+docker build --pull --no-cache --squash --tag=raw996/dbase:$RVERSION --build-arg RVERSION=$RVERSION $CI_PWD/docker/dbase
