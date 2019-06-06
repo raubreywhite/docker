@@ -58,7 +58,7 @@ RUN tlmgr install \
   mathpazo \
   fpl \
   babel-norsk \
-  hyphen-norsk
+  hyphen-norwegian
 
 RUN texhash
 
