@@ -57,7 +57,8 @@ RUN tlmgr install \
   palatino \
   mathpazo \
   fpl \
-  babel-norsk
+  babel-norsk \
+  hyphen-norsk
 
 RUN texhash
 
