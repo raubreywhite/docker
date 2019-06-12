@@ -19,6 +19,7 @@ RUN . /etc/environment \
   fhidata \
   fhiplot \
   fhi \
+  fd \
   sykdomspuls \
   normomo \
   sykdomspulslog \
