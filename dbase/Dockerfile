@@ -108,7 +108,8 @@ RUN . /etc/environment \
     gmailr \
     pander \
     httpuv \
-    ggpubr
+    ggpubr \
+    rio
 
 #RUN install2.r --error --repos https://www.math.ntnu.no/inla/R/stable --deps FALSE \
 #  INLA
