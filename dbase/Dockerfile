@@ -195,7 +195,8 @@ RUN . /etc/environment \
     GADMTools \
     mapproj \
     blogdown \
-    RcppProgress
+    RcppProgress \
+    fancycut
 
 RUN R -e "blogdown::install_hugo()"
 
