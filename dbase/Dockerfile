@@ -196,10 +196,24 @@ RUN . /etc/environment \
     mapproj \
     blogdown \
     RcppProgress \
-    fancycut
+    fancycut \
+    odbc
 
 RUN R -e "blogdown::install_hugo()"
 
+# databases
+
+RUN apt-get update -y
+
+RUN apt-get install -y unixodbc unixodbc-dev
+
+COPY mysql-connector-odbc-8.0.16-linux-debian9-x86-64bit.tar.gz /tmp/mysql-connector-odbc-8.0.16-linux-debian9-x86-64bit.tar.gz
+
+RUN cd /tmp; tar -xvf /tmp/mysql-connector-odbc-8.0.16-linux-debian9-x86-64bit.tar.gz
+
+RUN sudo cp mysql-connector-odbc-8.0.16-linux-debian9-x86-64bit/lib/libmyodbc8* /usr/lib/x86_64-linux-gnu/odbc/
+
+RUN sudo /tmp/mysql-connector-odbc-8.0.16-linux-debian9-x86-64bit/bin/myodbc-installer -d -a -n "MySQL" -t "DRIVER=/usr/lib/x86_64-linux-gnu/odbc/libmyodbc8w.so;Setup=/usr/lib/x86_64-linux-gnu/odbc/libmyodbc8S.so;"
 
 ## NEWER STUFF THAT NEEDS TO BE INSTALLED FROM GITHUB
 #RUN R -e "devtools::install_github('Appsilon/shiny.router',ref='7d9bc757ea31a1fe8faea6a5817c8adda97a0be0')"
