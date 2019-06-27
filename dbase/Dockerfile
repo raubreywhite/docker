@@ -197,7 +197,8 @@ RUN . /etc/environment \
     blogdown \
     RcppProgress \
     fancycut \
-    odbc
+    odbc \
+    mem
 
 RUN R -e "blogdown::install_hugo()"
 
