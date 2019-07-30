@@ -201,7 +201,8 @@ RUN . /etc/environment \
     mem \
     pbapply \
     SDMTools \
-    ncdf4
+    ncdf4 \
+    blastula
 
 RUN R -e "blogdown::install_hugo()"
 
