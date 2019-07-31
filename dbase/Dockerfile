@@ -207,6 +207,9 @@ RUN . /etc/environment \
 
 RUN R -e 'devtools::install_github("rich-iannone/blastula", force=T)'
 
+COPY mailsend-go_1.0.5_linux-64bit.deb /tmp/mailsend-go_1.0.5_linux-64bit.deb
+RUN cd /tmp; dpkg -i mailsend-go_1.0.5_linux-64bit.deb
+
 RUN R -e "blogdown::install_hugo()"
 
 # databases
