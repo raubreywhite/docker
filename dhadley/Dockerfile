@@ -28,3 +28,5 @@ RUN . /etc/environment \
   smhb \
   spread
 
+RUN R -e 'devtools::install_github("rich-iannone/blastula", force=T)'
+

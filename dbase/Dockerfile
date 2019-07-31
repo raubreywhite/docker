@@ -205,6 +205,8 @@ RUN . /etc/environment \
     blastula \
     huxtable
 
+RUN R -e 'devtools::install_github("rich-iannone/blastula", force=T)'
+
 RUN R -e "blogdown::install_hugo()"
 
 # databases
