@@ -30,3 +30,5 @@ RUN . /etc/environment \
 
 RUN R -e 'devtools::install_github("rich-iannone/blastula", force=T)'
 
+RUN R -e 'library(sykdomspuls)'
+RUN R -e 'library(normomo)'
