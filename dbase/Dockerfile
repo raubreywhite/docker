@@ -205,6 +205,9 @@ RUN . /etc/environment \
     blastula \
     huxtable
 
+RUN R -e 'remotes::install_github("jeroen/curl")'
+RUN R -e 'remotes::install_github("datawookie/emayili")'
+
 RUN R -e 'devtools::install_github("rich-iannone/blastula", force=T)'
 
 COPY mailsend-go_1.0.5_linux-64bit.deb /tmp/mailsend-go_1.0.5_linux-64bit.deb
