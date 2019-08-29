@@ -202,7 +202,8 @@ RUN . /etc/environment \
     pbapply \
     SDMTools \
     ncdf4 \
-    huxtable
+    huxtable \
+    svglite
 
 RUN R -e "blogdown::install_hugo()"
 
